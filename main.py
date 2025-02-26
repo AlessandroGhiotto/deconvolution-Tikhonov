@@ -9,7 +9,7 @@ from functools import partial
 
 # PART 1
 def choose_image():
-    st.subheader("Step 1: Choose Image", anchor=False)
+    st.subheader("1. Choose Image", anchor=False)
     img_str = st.selectbox(
         "Select Image",
         [
@@ -50,7 +50,7 @@ def blur(img):
     cols = st.columns(2)
 
     with cols[0]:
-        st.subheader("Step 2: Apply Blurring", anchor=False)
+        st.subheader("2. Apply Blurring", anchor=False)
         # Choose blurring kernel
         blur_str = st.selectbox(
             "Select Blurring Kernel",
@@ -76,7 +76,7 @@ def blur(img):
         blur_img_input = apply_blur_fft(img, kernel)
 
     with cols[1]:
-        st.subheader("Step 3: Add Noise", anchor=False)
+        st.subheader("3. Add Noise", anchor=False)
         # Add noise
         sigma_noise = st.slider("SD for Gaussian Noise", 0.0, 0.3, 0.05, 0.01)
         noisy_img = add_gaussian_noise(blur_img, sigma=sigma_noise)
@@ -94,7 +94,7 @@ def blur(img):
 # I can just pass the cell, and greate there a new container and update it.
 @st.fragment
 def deblur(noisy_img_input, original_img, kernel, cell):
-    st.subheader("Step 4: Deblur Image", anchor=False)
+    st.subheader("4. Deblur Image", anchor=False)
     # Choose blurring kernel
     deblur_str = st.selectbox(
         "Select Deblurring Method",
@@ -142,7 +142,7 @@ def deblur(noisy_img_input, original_img, kernel, cell):
             generalized_hamming_window_alpha,
         )
     elif deblur_str == "Gaussian Window":
-        big_omega = st.slider(r"$\Omega$", 0.01, 0.1, 0.06, 0.01)
+        big_omega = st.slider(r"$\Omega$", 0.01, 0.1, 0.05, 0.01)
         reconstructed_img = deconvolve_with_frequency_window(
             noisy_img_input, kernel, big_omega, gaussian_window
         )
@@ -169,6 +169,8 @@ def main():
     st.markdown(
         """Author: &nbsp; Alessandro Ghiotto &nbsp;
         [![Personal Profile](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/AlessandroGhiotto) 
+        &nbsp; -- &nbsp; This web app lets you pick an image, apply blurring and noise, and experiment with different deblurring methods 
+        by adjusting various parameters.
         """,
         unsafe_allow_html=True,
     )
