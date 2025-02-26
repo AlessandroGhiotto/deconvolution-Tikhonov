@@ -54,7 +54,7 @@ $$
 \hat{f_\mu} = \frac{\overline{\hat{K}} \hat{g}}{|\hat{K}|^2 + \mu (1 + |\omega_1|^2 + |\omega_2|^2)}
 $$
 
-Where $omega_1$ and $\omega_2$ are the spatial frequency variables.
+Where $\omega_1$ and $\omega_2$ are the spatial frequency variables.
 
 ### Deconvolution with Window Functions
 
