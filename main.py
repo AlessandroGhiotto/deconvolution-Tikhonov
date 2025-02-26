@@ -9,7 +9,7 @@ from functools import partial
 
 # PART 1
 def choose_image():
-    st.write("### Step 1: Choose Image")
+    st.subheader("Step 1: Choose Image", anchor=False)
     img_str = st.selectbox(
         "Select Image",
         [
@@ -50,7 +50,7 @@ def blur(img):
     cols = st.columns(2)
 
     with cols[0]:
-        st.write("### Step 2: Apply Blurring")
+        st.subheader("Step 2: Apply Blurring", anchor=False)
         # Choose blurring kernel
         blur_str = st.selectbox(
             "Select Blurring Kernel",
@@ -76,7 +76,7 @@ def blur(img):
         blur_img_input = apply_blur_fft(img, kernel)
 
     with cols[1]:
-        st.write("### Step 3: Add Noise")
+        st.subheader("Step 3: Add Noise", anchor=False)
         # Add noise
         sigma_noise = st.slider("SD for Gaussian Noise", 0.0, 0.3, 0.05, 0.01)
         noisy_img = add_gaussian_noise(blur_img, sigma=sigma_noise)
@@ -94,7 +94,7 @@ def blur(img):
 # I can just pass the cell, and greate there a new container and update it.
 @st.fragment
 def deblur(noisy_img_input, original_img, kernel, cell):
-    st.write("### Step 4: Deblur Image")
+    st.subheader("Step 4: Deblur Image", anchor=False)
     # Choose blurring kernel
     deblur_str = st.selectbox(
         "Select Deblurring Method",
@@ -156,7 +156,10 @@ def deblur(noisy_img_input, original_img, kernel, cell):
             caption="Deblurred Image",
             use_container_width=True,
         )
-        st.write(f"PSNR: {psnr_val:.2f} dB")
+        st.markdown(
+            f'<div style="text-align: center"> PSNR: {psnr_val:.2f} dB </div>',
+            unsafe_allow_html=True,
+        )
 
     return reconstructed_img
 
@@ -200,10 +203,15 @@ def main():
                 blur_img, caption="Blurred Image", use_container_width=True, clamp=True
             )
         with row2[2]:
+            psnr_val = psnr(img, noisy_img)
             st.image(
                 noisy_img,
                 caption="Blurred and Noisy Image",
                 use_container_width=True,
+            )
+            st.markdown(
+                f'<div style="text-align: center"> PSNR: {psnr_val:.2f} dB </div>',
+                unsafe_allow_html=True,
             )
         with row2[3]:
             # This is where the deblurred image will be displayed
