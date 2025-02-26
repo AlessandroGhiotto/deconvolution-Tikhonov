@@ -2,7 +2,7 @@
 
 Mathematics for Imaging ans Signal Processing project
 
-Link to the Web Application is [here]()
+Link to the Web Application is [here](https://deconvolution-tikhonov.streamlit.app/)
 
 ## Overview
 
@@ -54,6 +54,8 @@ $$
 \hat{f_\mu} = \frac{\overline{\hat{K}} \hat{g}}{|\hat{K}|^2 + \mu (1 + |\omega_1|^2 + |\omega_2|^2)}
 $$
 
+Where $omega_1$ and $\omega_2$ are the spatial frequency variables.
+
 ### Deconvolution with Window Functions
 
 We have implemented the following window functions:
@@ -98,7 +100,7 @@ $$
 \end{cases}
 $$
 
-&nbsp;&nbsp;&nbsp; where $\alpha$ is a parameter (we set $\alpha = 0.54$).
+&nbsp;&nbsp;&nbsp; where $\alpha$ is a parameter (the default is $\alpha = 0.54$).
 
 - **Gaussian Window**
 
