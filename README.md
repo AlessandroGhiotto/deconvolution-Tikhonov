@@ -18,7 +18,7 @@ $$
 
 $A$ is the convolution operator and $w$ is Gaussian noise sampled from $\mathcal{N}(\mu,\sigma^2)$
 
-There are implemented the following blurring kernels:
+The following blurring kernels have been implemented:
 
 - Gaussian Blur
 - Linear Motion Blur
@@ -58,7 +58,7 @@ Where $\omega_1$ and $\omega_2$ are the spatial frequency variables.
 
 ### Deconvolution with Window Functions
 
-We have implemented the following window functions:
+The following window functions have been implemented:
 
 - **Truncated Window** (Miller Regularization)
 
