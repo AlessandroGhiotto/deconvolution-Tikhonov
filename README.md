@@ -4,6 +4,13 @@ Mathematics for Imaging ans Signal Processing project
 
 Link to the Web Application is [here](https://deconvolution-tikhonov.streamlit.app/)
 
+[Image app](https://github.com/AlessandroGhiotto/deconvolution-Tikhonov/blob/main/images/preview-app.png?raw=true)
+
+<figure>
+  <img src="https://github.com/AlessandroGhiotto/deconvolution-Tikhonov/blob/main/images/preview-app.png?raw=true" alt="App Preview" width="400">
+  <figcaption>Preview of the web application</figcaption>
+</figure>
+
 ## Overview
 
 This repository explores the problem of image blurring and deblurring. It includes a Jupyter Notebook and a Streamlit web application, enabling users to interactively adjust regularization parameters and visualize their impact.
